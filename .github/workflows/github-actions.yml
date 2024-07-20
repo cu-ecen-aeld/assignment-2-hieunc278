@@ -11,8 +11,8 @@ jobs:
         runs-on: self-hosted
         steps:
           - uses: actions/checkout@v2
-          # - name: Checkout submodules
-          #   run : git submodule update --init --recursive
+          - name: Checkout submodules
+            run : git submodule update --init --recursive --force --remote
           - name: Run unit test
             run: ./unit-test.sh
     full-test:
@@ -21,6 +21,6 @@ jobs:
         steps:
           - uses: actions/checkout@v2
           - name: Checkout submodules
-            run : git submodule update --init --recursive
+            run : git submodule update --init --recursive --force --remote
           - name: Run full test
             run: ./full-test.sh
